@@ -9,7 +9,7 @@ const WeatherProvider = ( {children} ) => {
         city: "",
         country: ""
     })
-    const [resut, setResult] = useState({})
+    const [result, setResult] = useState({})
 
     const dataSearch = (e) => {
         setSearch({

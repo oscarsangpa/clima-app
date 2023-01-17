@@ -87,3 +87,30 @@ body {
     align-items: center;
     width: 100%;
   }
+
+  .weather {
+
+  }
+
+  .weather > p:first-of-type{
+    font-size: 4rem;
+    font-family: 'Inter', sans-serif;  }
+
+  .weather p {
+    text-align: center;
+    margin: 0;
+  }
+
+  .weather p span {
+    font-size: 1rem;
+    vertical-align: super;
+  }
+
+  .temp-min-max {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+
