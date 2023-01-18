@@ -15,6 +15,7 @@ const Form = () => {
         }
 
         checkWeather(search)
+        setAlert("")
     }
 
   return (

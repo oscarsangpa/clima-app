@@ -10,6 +10,8 @@ const WeatherProvider = ( {children} ) => {
         country: ""
     })
     const [result, setResult] = useState({})
+    const [loading, setLoading] = useState(false)
+    const [notFound, setNotFond] = useState("")
 
     const dataSearch = (e) => {
         setSearch({
@@ -19,6 +21,8 @@ const WeatherProvider = ( {children} ) => {
     }
 
     const checkWeather = async (data) => {
+        setLoading(true)
+        setNotFond(false)
         try {
             const {city, country} = data
             const appId = import.meta.env.VITE_API_KEY
@@ -34,9 +38,10 @@ const WeatherProvider = ( {children} ) => {
             setResult(weather)
             
         } catch (error) {
-            console.log(error)
+            setNotFond("City not found")
+        } finally {
+            setLoading(false)
         }
-        
     }
     return (
         <WeatherContext.Provider
@@ -44,7 +49,10 @@ const WeatherProvider = ( {children} ) => {
                 search,
                 dataSearch,
                 checkWeather,
-                result
+                result,
+                loading,
+                notFound,
+                setNotFond
             }}
             >
             {children}
